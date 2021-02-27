@@ -1,0 +1,96 @@
+<html>
+<head>
+    <meta charset="UTF-8" />
+    <title>快手涨粉信息一览表</title>
+    <script src="https://apps.bdimg.com/libs/jquery/2.1.4/jquery.min.js"></script>
+    <script src="http://cdn.highcharts.com.cn/highcharts/highcharts.js"></script>
+</head>
+<body>
+<div id="container" style="width: 80%; height: 60%; margin: 0 auto;"></div>
+<script language="JavaScript">
+$(document).ready(function() {
+    var title = {
+        text: '甲乙丙丁 ABCD'   
+    }
+    var subtitle = {
+        text: '来源: 参考数据'
+    }
+    var xAxis = {
+        categories: ['Jba', 'Feb', 'Mar', 'Apr', 'May', 'Jun', 'Jul', 'Aug', 'Sep', 'Oct', 'Nov', 'Dec']
+    }
+    var yAxis = {
+        title: {
+            text: '粉丝数(单位: 个)'
+        },
+        plotLines: [{
+            value: 0,
+            width: 1,
+            color: '#808080'
+        }]
+    }   
+
+    var tooltip = {
+        valueSuffix: '\xB0C'
+    }
+
+    var legend = {
+        layout: 'vertical',
+        align: 'right',
+        verticalAlign: 'middle',
+        borderWidth: 0
+    }
+
+    var series =  [
+        {
+            name: 'mteaching',
+            data: [1.0, 1.0, 1.0, 1.0, 1.0, 1.0, 1.0, 1.0, 1.0, 1.0, 1.0, 1.0],
+            color: "red"
+        }, 
+    ]
+
+    var json = {}
+
+    json.title = title
+    json.subtitle = subtitle
+    json.xAxis = xAxis
+    json.yAxis = yAxis
+    json.tooltip = tooltip
+    json.legend = legend
+    json.series = series
+
+    $('#container').highcharts(json)
+
+    var xmlhttp = new XMLHttpRequest()
+    function refresh(){
+        xmlhttp.open("GET", "google.txt", true)
+        xmlhttp.send()
+    }
+    xmlhttp.onreadystatechange=function(){
+        if(xmlhttp.readyState == 4 && xmlhttp.status == 200){
+            console.log("Get data successfully.")
+            var array = xmlhttp.responseText.split('-')
+            
+            console.log(json.series[0].data)
+            json.series[0].data = []
+            for(var i = 0;i<array.length;i++){
+                json.series[0].data.push(parseFloat(array[i]))
+            }
+            
+            console.log(json.series[0].data)
+            $('#container').highcharts(json)   
+        }
+    }
+    refresh()
+
+    /*setTimeout(function axis(){
+        console.log("Time arrived(2 seconds). . .")
+        var temp = {
+            categories: ['一', '二', '三', '四', '五', '六', '七', '八', '九', '十', '十一', '十二']
+        }
+        json.xAxis = temp
+        $('#container').highcharts(json)
+    }, 2000)*/
+    })
+</script>
+</body>
+</html>
