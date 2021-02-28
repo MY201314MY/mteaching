@@ -28,3 +28,4 @@ void Init_screen()
 
 	puts("\n");
 }
+
