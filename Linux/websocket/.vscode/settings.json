@@ -1,0 +1,8 @@
+{
+    "files.associations": {
+        "evp.h": "c",
+        "bio.h": "c",
+        "util.h": "c",
+        "websocket.h": "c"
+    }
+}

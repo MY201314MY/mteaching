@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <script src="https://apps.bdimg.com/libs/jquery/2.1.4/jquery.min.js"></script>
+    <meta charset="UTF-8">
+    <title>智能小贴士</title>
+    <script>
+        window.onload = function () {
+            alert("感谢您的访问+"+"    \r\nweb远程控制带灯实验"+"魔鬼的步伐")
+
+        }
+    </script>
+    <style>
+        #LED{
+            align-self: center;
+            width: 400px;
+            height: 400px;
+            font-size: 90px;
+            background-color: red;
+        }
+    </style>
+</head>
+<body>
+<h1 align="center">Welcome to the site.</h1>
+<div id="LED" align="center">
+    <p id="control">LED:OFF</p>
+    <p style="font-size: 45px">This is a remote controled LED</p>
+</div>
+<p>LED  亮度调节：<input id="progress" class="processor" type="range" name="pointers" min="0" max="10" value="0"></p>
+<li id='light'>当前设定值为:0 Level</li>
+<script>
+    var status = 0
+    $(document).ready(function () {
+        led = document.getElementById("LED")
+        $('#LED').click(function () {
+            console.log("The current color is:"+led.style.backgroundColor)
+            console.log("Status",status)
+            if(status == 1){
+                status = 0
+                $("#LED").css("background-color","red")
+                document.getElementById("control").innerHTML="LED:OFF";
+                ws.send("explore->"+"LED:OFF")
+            }
+            else {
+                status = 1
+                $("#LED").css("background-color","green")
+                document.getElementById("control").innerHTML="LED:ON"
+                ws.send("explore->"+"LED:ON")
+            }
+        })
+        $("#progress").mouseup(function(){
+            console.log("The moment value:"+document.getElementById("progress").value)
+            document.getElementById("light").innerHTML = "当前设定值为: " + document.getElementById("progress").value + " Level"
+            ws.send("explore->"+"level:"+document.getElementById("progress").value.toString())
+        })
+    })
+</script>
+<script>
+    if(window.WebSocket){
+        var ws = new WebSocket('ws://127.0.0.1:8080')
+        ws.onopen = function (e) {
+            console.log("连接服务器成功")
+            ws.send("This is a message from Chrome!")
+        }
+        ws.onmessage = function(e){
+            var time=new Date()
+            var moment = time.getHours()+":"+time.getMinutes()+":"+time.getSeconds()+" :"
+            console.log(moment+e.data)
+        }
+        ws.onerror = function (e) {
+            console.log("连接出错")
+        }
+        ws.close = function (e) {
+            console.log("服务器关闭")
+        }
+    }
+</script>
+</body>
+</html>
