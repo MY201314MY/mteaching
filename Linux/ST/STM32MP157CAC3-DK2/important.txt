@@ -1,0 +1,32 @@
+1、pscp
+    pscp -r D:\Web\monkey root@120.26.185.144:/var/www/html
+    PSCP (PuTTY Secure Copy client)是PuTTY 提供的文件传输工具，通过SSH连接，在两台机器之间安全的传输文件，可以用于任何SSH（包括SSH v1、SSH v2）服务器。
+                                                                                	
+2、ifconfig wlan0 up
+    wpa_passphrase myss myss002714 >> /etc/wpa_supplicant.conf
+    wpa_passphrase mybg my002714 >> /etc/wpa_supplicant.conf
+
+    wpa_supplicant -B -i wlan0 -c /etc/wpa_supplicant.conf
+    sleep 2
+    iw wlan0 link
+    udhcpc -i wlan0
+    ping www.baidu.com -c 4
+3、important package
+    apt-get install nano
+    apt-get install python3-pip
+    apt-get install python3-dbus
+    apt-get install python3-sqlite3
+4、how to install package with pip3
+    pip3 install paho-mqtt -i http://mirrors.aliyun.com/pypi/simple/ --trusted-host mirrors.aliyun.com
+
+5、UPDATE DTS
+	1、cd stm32mp157/stm32mp1-openstlinux-5-4-dunfell-mp1-20-11-12/sources/arm-ostl-linux-gnueabi/linux-stm32mp-5.4.56-r0/linux-5.4.56/
+	2、make dtbs
+	3、scp arch/arm/boot/dts/stm32mp157c-dk2.dtb root@192.168.7.1:/boot
+
+6、gstreamer environment in ubuntu
+    apt-get install libgstreamer1.0-0 gstreamer1.0-plugins-base gstreamer1.0-plugins-good gstreamer1.0-plugins-bad gstreamer1.0-plugins-ugly gstreamer1.0-libav gstreamer1.0-doc gstreamer1.0-tools gstreamer1.0-x gstreamer1.0-alsa gstreamer1.0-gl gstreamer1.0-gtk3 gstreamer1.0-qt5 gstreamer1.0-pulseaudio
+
+
+	
+	
