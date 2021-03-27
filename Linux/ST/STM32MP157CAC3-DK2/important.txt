@@ -42,4 +42,5 @@
     扫描WiFi
         iw wlan0 scan
 
-10、 
+10、 gi
+    sudo apt-get install python3-gi
