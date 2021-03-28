@@ -15,6 +15,7 @@
     apt-get install nano
     apt-get install redis
     apt-get install nginx
+        curl localhost
         /var/www/localhost/html/index.html
     apt-get install python3-pip
     apt-get install python3-dbus
