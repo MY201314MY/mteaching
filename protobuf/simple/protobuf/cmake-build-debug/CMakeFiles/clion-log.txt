@@ -1,0 +1,11 @@
+"D:\SoftWare\CLion\install\CLion 2018.2.7\bin\cmake\win\bin\cmake.exe" -DCMAKE_BUILD_TYPE=Debug -G "CodeBlocks - MinGW Makefiles" D:\project\CLion\protobuf
+-- The C compiler identification is GNU 4.9.2
+-- Check for working C compiler: D:/SoftWare/Dev-Cpp/MinGW64/bin/gcc.exe
+-- Check for working C compiler: D:/SoftWare/Dev-Cpp/MinGW64/bin/gcc.exe -- works
+-- Detecting C compiler ABI info
+-- Detecting C compiler ABI info - done
+-- Detecting C compile features
+-- Detecting C compile features - done
+-- Configuring done
+-- Generating done
+-- Build files have been written to: D:/project/CLion/protobuf/cmake-build-debug

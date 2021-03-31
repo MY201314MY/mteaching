@@ -1,0 +1,3 @@
+D:/project/CLion/protobuf/cmake-build-debug/CMakeFiles/protobuf.dir
+D:/project/CLion/protobuf/cmake-build-debug/CMakeFiles/edit_cache.dir
+D:/project/CLion/protobuf/cmake-build-debug/CMakeFiles/rebuild_cache.dir

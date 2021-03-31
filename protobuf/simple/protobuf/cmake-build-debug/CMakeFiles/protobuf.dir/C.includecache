@@ -1,0 +1,46 @@
+#IncludeRegexLine: ^[ 	]*[#%][ 	]*(include|import)[ 	]*[<"]([^">]+)([">])
+
+#IncludeRegexScan: ^.*$
+
+#IncludeRegexComplain: ^$
+
+#IncludeRegexTransform: 
+
+D:/project/CLion/protobuf/main.c
+stdio.h
+-
+pb_encode.h
+D:/project/CLion/protobuf/pb_encode.h
+pb_decode.h
+D:/project/CLion/protobuf/pb_decode.h
+message.pb.h
+D:/project/CLion/protobuf/message.pb.h
+
+D:/project/CLion/protobuf/message.pb.h
+pb.h
+D:/project/CLion/protobuf/pb.h
+
+D:/project/CLion/protobuf/pb.h
+stdint.h
+-
+stddef.h
+-
+stdbool.h
+-
+string.h
+-
+limits.h
+-
+stdlib.h
+-
+avr/pgmspace.h
+-
+
+D:/project/CLion/protobuf/pb_decode.h
+pb.h
+D:/project/CLion/protobuf/pb.h
+
+D:/project/CLion/protobuf/pb_encode.h
+pb.h
+D:/project/CLion/protobuf/pb.h
+
