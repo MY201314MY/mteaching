@@ -5,6 +5,7 @@
 2、ifconfig wlan0 up
     wpa_passphrase myss myss002714 >> /etc/wpa_supplicant.conf
     wpa_passphrase mybg my002714 >> /etc/wpa_supplicant.conf
+	wpa_passphrase mteaching 17634802048 >> /etc/wpa_supplicant.conf
 
     wpa_supplicant -B -i wlan0 -c /etc/wpa_supplicant.conf
     sleep 2
@@ -21,6 +22,11 @@
     apt-get install python3-dbus
     apt-get install python3-sqlite3
     apt-get install mosquitto mosquitto-clients
+	
+	apt-get install libgpiod-python
+	apt-get install python3-smbus	
+	apt-get install python3-spidev
+	
 4、how to install package with pip3
     pip3 install paho-mqtt -i http://mirrors.aliyun.com/pypi/simple/ --trusted-host mirrors.aliyun.com
     pip3 install requests -i http://mirrors.aliyun.com/pypi/simple/ --trusted-host mirrors.aliyun.com
