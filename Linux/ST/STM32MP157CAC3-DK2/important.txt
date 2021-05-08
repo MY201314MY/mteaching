@@ -35,6 +35,8 @@
 	1、cd stm32mp157/stm32mp1-openstlinux-5-4-dunfell-mp1-20-11-12/sources/arm-ostl-linux-gnueabi/linux-stm32mp-5.4.56-r0/linux-5.4.56/
 	2、make dtbs
 	3、scp arch/arm/boot/dts/stm32mp157c-dk2.dtb root@192.168.7.1:/boot
+	
+	scp arch/arm/boot/uImage root@192.168.7.1:/boot
 
 6、gstreamer environment in ubuntu
     apt-get install libgstreamer1.0-0 gstreamer1.0-plugins-base gstreamer1.0-plugins-good gstreamer1.0-plugins-bad gstreamer1.0-plugins-ugly gstreamer1.0-libav gstreamer1.0-doc gstreamer1.0-tools gstreamer1.0-x gstreamer1.0-alsa gstreamer1.0-gl gstreamer1.0-gtk3 gstreamer1.0-qt5 gstreamer1.0-pulseaudio
@@ -56,3 +58,25 @@
 
 10、 gi
     sudo apt-get install python3-gi
+11、SPI
+	&spi5 {
+		cs-gpios = <&gpiof 6 0>;
+		status = "okay";
+		
+		spidev@0{
+			compatible = "spidev";
+			reg = <0>;
+			spi-max-frequency = <100000000>;
+		};
+	};
+	
+	&spi5 {
+		cs-gpios = <&gpiof 6 0>;
+		status = "okay";
+		
+		mcp2515@0{
+			compatible = "microchip,mcp2515";
+			reg = <0>;
+			spi-max-frequency = <100000000>;
+		};
+	};
