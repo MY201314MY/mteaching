@@ -1,6 +1,8 @@
 {
     "files.associations": {
         "stdint.h": "c",
-        "windows.h": "c"
+        "windows.h": "c",
+        "string": "cpp",
+        "initializer_list": "cpp"
     }
 }
