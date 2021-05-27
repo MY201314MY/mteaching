@@ -37,6 +37,8 @@
 	3、scp arch/arm/boot/dts/stm32mp157c-dk2.dtb root@192.168.7.1:/boot
 	
 	scp arch/arm/boot/uImage root@192.168.7.1:/boot
+	
+	scp arch/arm/boot/uImage root@192.168.7.1:/boot
 
 6、gstreamer environment in ubuntu
     apt-get install libgstreamer1.0-0 gstreamer1.0-plugins-base gstreamer1.0-plugins-good gstreamer1.0-plugins-bad gstreamer1.0-plugins-ugly gstreamer1.0-libav gstreamer1.0-doc gstreamer1.0-tools gstreamer1.0-x gstreamer1.0-alsa gstreamer1.0-gl gstreamer1.0-gtk3 gstreamer1.0-qt5 gstreamer1.0-pulseaudio
@@ -80,3 +82,22 @@
 			spi-max-frequency = <100000000>;
 		};
 	};
+	
+CAN BUS
+   1、ip addr
+   2、ip link set can0 type can bitrate 500000
+	  ip link set can0 up type can bitrate 1000000 dbitrate 2000000 fd on
+   3、dmesg
+   4、ip -details link show can0
+   5、ip link set can0 up
+   6、ip -details link show can0
+   7、ifconfig
+   
+https download
+	wget https://www.apple.com.cn/105/media/cn/iphone-12/2020/7f5b7de7-9f8c-41eb-bf3b-f294773108e6/anim/hero-purple/large_2x.mp4 --no-check-certificate
+
+gstreamer
+	1、查看媒体文件信息
+		gst-discoverer-1.0 iPhone.mp4
+	2、视频转图片
+		gst-launch-1.0 v4l2src device=/dev/video0 num-buffers=1 ! image/jpeg,width=1920,height=1080 ! filesink location=/opt/test.jpg
