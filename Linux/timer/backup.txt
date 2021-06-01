@@ -66,10 +66,6 @@ void alarm_late_set(unsigned int second)
     reference url:
     https://blog.csdn.net/ken_lyy/article/details/51312466?utm_medium=distribute.pc_relevant.none-task-blog-2%7Edefault%7EBlogCommendFromMachineLearnPai2%7Edefault-1.control&depth_1-utm_source=distribute.pc_relevant.none-task-blog-2%7Edefault%7EBlogCommendFromMachineLearnPai2%7Edefault-1.control
     */
-
-    /*
-    Attention:一个进程内不能设置多个闹钟(回调函数入口相同)!
-    */
     alarm(second); //trigger timer
 }
 
@@ -95,10 +91,11 @@ int main()
 
     timestr(buffer, sizeof buffer);
     printf("Begin:moment:%s\r\n", buffer);
-    /*
-    suspend the progress until receive a signal.
-    */
-    pause();
+
+    while(i == 0)
+    {
+        sleep(1);
+    }
     
     timestr(buffer, sizeof buffer);
     printf("End:moment:%s\r\n", buffer);

@@ -1,9 +1,11 @@
-PROG = main
-SRCS = main.c
+set:
+	gcc set.c -o set -lrt
 
+main:
+	gcc main.c -o main
 
-$(PROG): $(SRCS)
-	$(CC) -o $@ $^
+sem:
+	gcc sem.c -o sem -lpthread
 
-clean:
-	rm -f $(PROG)
+transfer:
+	scp main root@192.168.7.1:/home/root
