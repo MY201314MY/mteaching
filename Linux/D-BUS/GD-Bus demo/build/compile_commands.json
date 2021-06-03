@@ -1,0 +1,22 @@
+[
+{
+  "directory": "/home/pi/GDBus-master/build/client",
+  "command": "/usr/bin/cc  -I/home/pi/GDBus-master/includes -I/home/pi/GDBus-master/gdbus -I/usr/include/glib-2.0 -I/usr/lib/glib-2.0/include -I/usr/include/gio-unix-2.0 -I/usr/lib/x86_64-linux-gnu/glib-2.0/include  -g   -o CMakeFiles/client.dir/client.c.o   -c /home/pi/GDBus-master/client/client.c",
+  "file": "/home/pi/GDBus-master/client/client.c"
+},
+{
+  "directory": "/home/pi/GDBus-master/build/client",
+  "command": "/usr/bin/cc  -I/home/pi/GDBus-master/includes -I/home/pi/GDBus-master/gdbus -I/usr/include/glib-2.0 -I/usr/lib/glib-2.0/include -I/usr/include/gio-unix-2.0 -I/usr/lib/x86_64-linux-gnu/glib-2.0/include  -g   -o CMakeFiles/client.dir/__/gdbus/gdbusdemo_gen.c.o   -c /home/pi/GDBus-master/gdbus/gdbusdemo_gen.c",
+  "file": "/home/pi/GDBus-master/gdbus/gdbusdemo_gen.c"
+},
+{
+  "directory": "/home/pi/GDBus-master/build/server",
+  "command": "/usr/bin/cc  -I/home/pi/GDBus-master/includes -I/home/pi/GDBus-master/gdbus -I/usr/include/glib-2.0 -I/usr/lib/glib-2.0/include -I/usr/include/gio-unix-2.0 -I/usr/lib/x86_64-linux-gnu/glib-2.0/include  -g   -o CMakeFiles/server.dir/server.c.o   -c /home/pi/GDBus-master/server/server.c",
+  "file": "/home/pi/GDBus-master/server/server.c"
+},
+{
+  "directory": "/home/pi/GDBus-master/build/server",
+  "command": "/usr/bin/cc  -I/home/pi/GDBus-master/includes -I/home/pi/GDBus-master/gdbus -I/usr/include/glib-2.0 -I/usr/lib/glib-2.0/include -I/usr/include/gio-unix-2.0 -I/usr/lib/x86_64-linux-gnu/glib-2.0/include  -g   -o CMakeFiles/server.dir/__/gdbus/gdbusdemo_gen.c.o   -c /home/pi/GDBus-master/gdbus/gdbusdemo_gen.c",
+  "file": "/home/pi/GDBus-master/gdbus/gdbusdemo_gen.c"
+}
+]

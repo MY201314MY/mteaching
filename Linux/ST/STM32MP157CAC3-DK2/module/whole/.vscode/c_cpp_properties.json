@@ -1,0 +1,22 @@
+{
+    "configurations": [
+        {
+            "name": "Linux",
+            "includePath": [
+                "${workspaceFolder}/**",
+                "/home/pi/important/linux-stm32mp-5.4.31-r0/linux-5.4.31/include",
+                "/home/pi/important/linux-stm32mp-5.4.31-r0/linux-5.4.31/arch/arm/include",
+                "/home/pi/important/linux-stm32mp-5.4.31-r0/linux-5.4.31/drivers/gpio",
+                "/home/pi/important/linux-stm32mp-5.4.31-r0/linux-5.4.31/arch/arm/include/generated",
+                "/home/pi/important/linux-stm32mp-5.4.31-r0/linux-5.4.31/include/uapi",
+                "/home/pi/important/linux-stm32mp-5.4.31-r0/linux-5.4.31/arch/arm/include/generated/uapi"
+            ],
+            "defines": [],
+            "compilerPath": "/usr/bin/gcc",
+            "cStandard": "gnu11",
+            "cppStandard": "gnu++14",
+            "intelliSenseMode": "gcc-x64"
+        }
+    ],
+    "version": 4
+}

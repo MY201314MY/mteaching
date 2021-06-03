@@ -1,0 +1,10 @@
+/home/pi/GDBus-master/build/CMakeFiles/rebuild_cache.dir
+/home/pi/GDBus-master/build/CMakeFiles/edit_cache.dir
+/home/pi/GDBus-master/build/client/CMakeFiles/rebuild_cache.dir
+/home/pi/GDBus-master/build/client/CMakeFiles/client.dir
+/home/pi/GDBus-master/build/client/CMakeFiles/edit_cache.dir
+/home/pi/GDBus-master/build/server/CMakeFiles/rebuild_cache.dir
+/home/pi/GDBus-master/build/server/CMakeFiles/server.dir
+/home/pi/GDBus-master/build/server/CMakeFiles/edit_cache.dir
+/home/pi/GDBus-master/build/gdbus/CMakeFiles/rebuild_cache.dir
+/home/pi/GDBus-master/build/gdbus/CMakeFiles/edit_cache.dir

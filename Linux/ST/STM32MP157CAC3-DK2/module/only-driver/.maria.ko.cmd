@@ -1,0 +1,1 @@
+cmd_/home/pi/stm32mp157-dk2/LED/maria.ko := arm-ostl-linux-gnueabi-ld -r  -EL  --build-id  -T ./scripts/module-common.lds -T ./arch/arm/kernel/module.lds -o /home/pi/stm32mp157-dk2/LED/maria.ko /home/pi/stm32mp157-dk2/LED/maria.o /home/pi/stm32mp157-dk2/LED/maria.mod.o;  true
