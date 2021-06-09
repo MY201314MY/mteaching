@@ -83,7 +83,7 @@
 		};
 	};
 	
-CAN BUS
+12、CAN BUS
    1、ip addr
    2、ip link set can0 type can bitrate 500000
 	  ip link set can0 up type can bitrate 1000000 dbitrate 2000000 fd on
@@ -93,11 +93,18 @@ CAN BUS
    6、ip -details link show can0
    7、ifconfig
    
-https download
+13、https download
 	wget https://www.apple.com.cn/105/media/cn/iphone-12/2020/7f5b7de7-9f8c-41eb-bf3b-f294773108e6/anim/hero-purple/large_2x.mp4 --no-check-certificate
 
-gstreamer
+14、gstreamer
 	1、查看媒体文件信息
 		gst-discoverer-1.0 iPhone.mp4
 	2、视频转图片
 		gst-launch-1.0 v4l2src device=/dev/video0 num-buffers=1 ! image/jpeg,width=1920,height=1080 ! filesink location=/opt/test.jpg
+		
+15、Glib
+	1、install
+		sudo apt-get install libglib2.0-dev
+	2、flag
+		pkg-config --cflags --libs glib-2.0
+			-I/usr/include/glib-2.0 -I/usr/lib/x86_64-linux-gnu/glib-2.0/include -lglib-2.0
