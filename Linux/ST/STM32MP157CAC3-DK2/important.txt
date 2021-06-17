@@ -105,6 +105,9 @@
 15、Glib
 	1、install
 		sudo apt-get install libglib2.0-dev
+            reference url:
+                1、https://www.cnblogs.com/alexyuyu/articles/2555216.html
+                2、https://blog.csdn.net/andylauren/category_6219334.html
 	2、flag
 		pkg-config --cflags --libs glib-2.0
 			-I/usr/include/glib-2.0 -I/usr/lib/x86_64-linux-gnu/glib-2.0/include -lglib-2.0
