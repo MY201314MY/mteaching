@@ -37,6 +37,10 @@ gpointer thread_2(gpointer data)
             g_print("%02d: thread 1 locked the mutex\r\n", i);
         }
         else{
+            /*
+            g_mutex_lock(mutex);
+            with suspended.
+             */
             g_print("thread 2 do something.\r\n");
             g_mutex_unlock(mutex);
         }
