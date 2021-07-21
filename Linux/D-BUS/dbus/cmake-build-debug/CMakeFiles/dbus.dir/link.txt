@@ -1,0 +1,1 @@
+/usr/bin/cc -g   CMakeFiles/dbus.dir/main.c.o CMakeFiles/dbus.dir/gdbus.c.o  -o dbus  -lpthread -ldbus-1 -lgio-2.0 -lgobject-2.0 -lglib-2.0 
