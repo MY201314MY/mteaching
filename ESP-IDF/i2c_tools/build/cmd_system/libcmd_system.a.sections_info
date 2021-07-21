@@ -1,0 +1,122 @@
+In archive /home/pi/espressif/final/i2c_tools/build/cmd_system/libcmd_system.a:
+
+cmd_system.o:     file format elf32-xtensa-le
+
+Sections:
+Idx Name          Size      VMA       LMA       File off  Algn
+  0 .literal.register_free 00000020  00000000  00000000  00000034  2**2
+                  CONTENTS, ALLOC, LOAD, RELOC, READONLY, CODE
+  1 .literal.register_heap 00000020  00000000  00000000  00000054  2**2
+                  CONTENTS, ALLOC, LOAD, RELOC, READONLY, CODE
+  2 .literal.register_version 00000020  00000000  00000000  00000074  2**2
+                  CONTENTS, ALLOC, LOAD, RELOC, READONLY, CODE
+  3 .literal.register_restart 00000020  00000000  00000000  00000094  2**2
+                  CONTENTS, ALLOC, LOAD, RELOC, READONLY, CODE
+  4 .literal.register_tasks 00000020  00000000  00000000  000000b4  2**2
+                  CONTENTS, ALLOC, LOAD, RELOC, READONLY, CODE
+  5 .literal.free_mem 0000000c  00000000  00000000  000000d4  2**2
+                  CONTENTS, ALLOC, LOAD, RELOC, READONLY, CODE
+  6 .literal.heap_size 00000018  00000000  00000000  000000e0  2**2
+                  CONTENTS, ALLOC, LOAD, RELOC, READONLY, CODE
+  7 .literal.get_version 00000060  00000000  00000000  000000f8  2**2
+                  CONTENTS, ALLOC, LOAD, RELOC, READONLY, CODE
+  8 .literal.restart 00000014  00000000  00000000  00000158  2**2
+                  CONTENTS, ALLOC, LOAD, RELOC, READONLY, CODE
+  9 .literal.register_deep_sleep 00000058  00000000  00000000  0000016c  2**2
+                  CONTENTS, ALLOC, LOAD, RELOC, READONLY, CODE
+ 10 .literal.deep_sleep 00000078  00000000  00000000  000001c4  2**2
+                  CONTENTS, ALLOC, LOAD, RELOC, READONLY, CODE
+ 11 .literal.register_light_sleep 00000058  00000000  00000000  0000023c  2**2
+                  CONTENTS, ALLOC, LOAD, RELOC, READONLY, CODE
+ 12 .literal.light_sleep 000000dc  00000000  00000000  00000294  2**2
+                  CONTENTS, ALLOC, LOAD, RELOC, READONLY, CODE
+ 13 .literal.tasks_info 0000003c  00000000  00000000  00000370  2**2
+                  CONTENTS, ALLOC, LOAD, RELOC, READONLY, CODE
+ 14 .literal.register_system 0000001c  00000000  00000000  000003ac  2**2
+                  CONTENTS, ALLOC, LOAD, RELOC, READONLY, CODE
+ 15 .text         00000000  00000000  00000000  000003c8  2**0
+                  CONTENTS, ALLOC, LOAD, READONLY, CODE
+ 16 .data         00000000  00000000  00000000  000003c8  2**0
+                  CONTENTS, ALLOC, LOAD, DATA
+ 17 .bss          00000000  00000000  00000000  000003c8  2**0
+                  ALLOC
+ 18 .rodata.str1.4 0000082c  00000000  00000000  000003c8  2**2
+                  CONTENTS, ALLOC, LOAD, READONLY, DATA
+ 19 .text.register_free 00000036  00000000  00000000  00000bf4  2**2
+                  CONTENTS, ALLOC, LOAD, RELOC, READONLY, CODE
+ 20 .text.register_heap 00000036  00000000  00000000  00000c2c  2**2
+                  CONTENTS, ALLOC, LOAD, RELOC, READONLY, CODE
+ 21 .text.register_version 00000036  00000000  00000000  00000c64  2**2
+                  CONTENTS, ALLOC, LOAD, RELOC, READONLY, CODE
+ 22 .text.register_restart 00000036  00000000  00000000  00000c9c  2**2
+                  CONTENTS, ALLOC, LOAD, RELOC, READONLY, CODE
+ 23 .text.register_tasks 00000036  00000000  00000000  00000cd4  2**2
+                  CONTENTS, ALLOC, LOAD, RELOC, READONLY, CODE
+ 24 .text.free_mem 00000018  00000000  00000000  00000d0c  2**2
+                  CONTENTS, ALLOC, LOAD, RELOC, READONLY, CODE
+ 25 .text.heap_size 0000002c  00000000  00000000  00000d24  2**2
+                  CONTENTS, ALLOC, LOAD, RELOC, READONLY, CODE
+ 26 .text.get_version 000000ac  00000000  00000000  00000d50  2**2
+                  CONTENTS, ALLOC, LOAD, RELOC, READONLY, CODE
+ 27 .text.restart 00000022  00000000  00000000  00000dfc  2**2
+                  CONTENTS, ALLOC, LOAD, RELOC, READONLY, CODE
+ 28 .rodata       00000028  00000000  00000000  00000e20  2**2
+                  CONTENTS, ALLOC, LOAD, RELOC, READONLY, DATA
+ 29 .text.register_deep_sleep 00000077  00000000  00000000  00000e48  2**2
+                  CONTENTS, ALLOC, LOAD, RELOC, READONLY, CODE
+ 30 .text.deep_sleep 0000017a  00000000  00000000  00000ec0  2**2
+                  CONTENTS, ALLOC, LOAD, RELOC, READONLY, CODE
+ 31 .text.register_light_sleep 00000082  00000000  00000000  0000103c  2**2
+                  CONTENTS, ALLOC, LOAD, RELOC, READONLY, CODE
+ 32 .text.light_sleep 00000239  00000000  00000000  000010c0  2**2
+                  CONTENTS, ALLOC, LOAD, RELOC, READONLY, CODE
+ 33 .text.tasks_info 00000081  00000000  00000000  000012fc  2**2
+                  CONTENTS, ALLOC, LOAD, RELOC, READONLY, CODE
+ 34 .text.register_system 0000002f  00000000  00000000  00001380  2**2
+                  CONTENTS, ALLOC, LOAD, RELOC, READONLY, CODE
+ 35 .rodata.__func__$6955 0000000f  00000000  00000000  000013b0  2**2
+                  CONTENTS, ALLOC, LOAD, READONLY, DATA
+ 36 .rodata.__func__$6991 0000000c  00000000  00000000  000013c0  2**2
+                  CONTENTS, ALLOC, LOAD, READONLY, DATA
+ 37 .rodata.__func__$7014 00000015  00000000  00000000  000013cc  2**2
+                  CONTENTS, ALLOC, LOAD, READONLY, DATA
+ 38 .rodata.__func__$6969 0000000b  00000000  00000000  000013e4  2**2
+                  CONTENTS, ALLOC, LOAD, READONLY, DATA
+ 39 .rodata.__func__$6977 00000014  00000000  00000000  000013f0  2**2
+                  CONTENTS, ALLOC, LOAD, READONLY, DATA
+ 40 .rodata.__func__$6925 00000011  00000000  00000000  00001404  2**2
+                  CONTENTS, ALLOC, LOAD, READONLY, DATA
+ 41 .rodata.__func__$6916 00000011  00000000  00000000  00001418  2**2
+                  CONTENTS, ALLOC, LOAD, READONLY, DATA
+ 42 .rodata.__func__$6944 0000000e  00000000  00000000  0000142c  2**2
+                  CONTENTS, ALLOC, LOAD, READONLY, DATA
+ 43 .rodata.__func__$6934 0000000e  00000000  00000000  0000143c  2**2
+                  CONTENTS, ALLOC, LOAD, READONLY, DATA
+ 44 .bss.light_sleep_args 00000010  00000000  00000000  0000144c  2**2
+                  ALLOC
+ 45 .bss.deep_sleep_args 00000010  00000000  00000000  0000144c  2**2
+                  ALLOC
+ 46 .debug_frame  00000178  00000000  00000000  0000144c  2**2
+                  CONTENTS, RELOC, READONLY, DEBUGGING
+ 47 .debug_info   000021e0  00000000  00000000  000015c4  2**0
+                  CONTENTS, RELOC, READONLY, DEBUGGING
+ 48 .debug_abbrev 000003d5  00000000  00000000  000037a4  2**0
+                  CONTENTS, READONLY, DEBUGGING
+ 49 .debug_loc    00000490  00000000  00000000  00003b79  2**0
+                  CONTENTS, RELOC, READONLY, DEBUGGING
+ 50 .debug_aranges 00000090  00000000  00000000  00004009  2**0
+                  CONTENTS, RELOC, READONLY, DEBUGGING
+ 51 .debug_ranges 00000098  00000000  00000000  00004099  2**0
+                  CONTENTS, RELOC, READONLY, DEBUGGING
+ 52 .debug_line   00000a6b  00000000  00000000  00004131  2**0
+                  CONTENTS, RELOC, READONLY, DEBUGGING
+ 53 .debug_str    00000f90  00000000  00000000  00004b9c  2**0
+                  CONTENTS, READONLY, DEBUGGING
+ 54 .comment      0000003b  00000000  00000000  00005b2c  2**0
+                  CONTENTS, READONLY
+ 55 .xtensa.info  00000038  00000000  00000000  00005b67  2**0
+                  CONTENTS, READONLY
+ 56 .xt.lit       00000078  00000000  00000000  00005b9f  2**0
+                  CONTENTS, RELOC, READONLY
+ 57 .xt.prop      000005dc  00000000  00000000  00005c17  2**0
+                  CONTENTS, RELOC, READONLY
