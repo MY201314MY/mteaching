@@ -1,0 +1,76 @@
+We run X-Window in STM32MP157-DK2.
+
+xwininfo -tree -root
+
+xwininfo: Window id: 0x4dd (the root window) (has no name)
+
+  Root window id: 0x4dd (the root window) (has no name)
+  Parent window id: 0x0 (none)
+     47 children:
+     0x60000b "gnome-shell": ("gnome-shell" "Gnome-shell")  1x1+-200+-200  +-200+-200
+        1 child:
+        0x60000c (has no name): ()  1x1+-1+-1  +-201+-201
+     0x2c0000a "m@ubuntu: ~": ("gnome-terminal-server" "Gnome-terminal")  1846x861+72+27  +72+27
+        1 child:
+        0x2c0000b (has no name): ()  1x1+-1+-1  +71+26
+     0x2c00006 (has no name): ()  1x1+-1+-1  +-1+-1
+     0x2c00002 "Terminal": ()  10x10+-100+-100  +-100+-100
+     0x2c00001 "Terminal": ("gnome-terminal-server" "Gnome-terminal-server")  10x10+10+10  +10+10
+     0x2200008 (has no name): ()  1x1+-1+-1  +-1+-1
+     0x2000013 "Code": ("code" "Code")  800x600+595+157  +595+157
+        1 child:
+        0x2600014 (has no name): ()  800x600+0+0  +595+157
+     0x600762 (has no name): ()  1848x863+71+26  +71+26
+        1 child:
+        0x2000007 "README.md - framebuffer - Visual Studio Code": ("code" "Code")  1846x824+1+38  +72+64
+           1 child:
+           0x260000e (has no name): ()  1846x824+0+0  +72+64
+     0x2000008 (has no name): ()  1x1+0+0  +0+0
+     0x2200003 "code": ("code" "Code")  200x200+0+0  +0+0
+        1 child:
+        0x2200004 (has no name): ()  1x1+-1+-1  +-1+-1
+     0x2200001 "code": ("code" "Code")  10x10+10+10  +10+10
+     0x240328f "org.gnome.Nautilus": ("org.gnome.Nautilus" "Org.gnome.Nautilus")  319x176+651+179  +651+179
+        1 child:
+        0x2403290 (has no name): ()  1x1+-1+-1  +650+178
+     0x24038ca "org.gnome.Nautilus": ("org.gnome.Nautilus" "Org.gnome.Nautilus")  358x481+791+126  +791+126
+        1 child:
+        0x24038cb (has no name): ()  1x1+-1+-1  +790+125
+     0x2402feb "framebuffer": ("org.gnome.Nautilus" "Org.gnome.Nautilus")  1846x861+72+27  +72+27
+        1 child:
+        0x2402fec (has no name): ()  1x1+-1+-1  +71+26
+     0x1e00014 "vmware-user": ()  10x10+-100+-100  +-100+-100
+     0x2400170 "org.gnome.Nautilus": ()  10x10+-100+-100  +-100+-100
+     0x2400003 (has no name): ()  1x1+-1+-1  +-1+-1
+     0x2400001 "org.gnome.Nautilus": ("org.gnome.Nautilus" "Org.gnome.Nautilus")  10x10+10+10  +10+10
+     0x1e00011 "vmware-user": ()  10x10+-100+-100  +-100+-100
+     0x1e0000e "vmware-user": ()  10x10+-100+-100  +-100+-100
+     0x1e0000b "vmware-user": ()  10x10+-100+-100  +-100+-100
+     0x1c00001 "update-notifier": ("update-notifier" "Update-notifier")  10x10+10+10  +10+10
+     0x1e00008 "vmware-user": ()  10x10+-100+-100  +-100+-100
+     0x1e00005 "vmware-user": ()  10x10+-100+-100  +-100+-100
+     0x1e00002 "vmware-user": ()  10x10+-100+-100  +-100+-100
+     0x1e00001 "vmware-user": ("vmware-user" "Vmware-user")  10x10+10+10  +10+10
+     0x600017 (has no name): ()  1x1+-1+-1  +-1+-1
+     0x1a00001 "evolution-alarm-notify": ("evolution-alarm-notify" "Evolution-alarm-notify")  10x10+10+10  +10+10
+     0x1800002 (has no name): ()  10x10+0+0  +0+0
+     0x1600001 "gsd-wacom": ("gsd-wacom" "Gsd-wacom")  10x10+10+10  +10+10
+     0x1800001 "gsd-xsettings": ("gsd-xsettings" "Gsd-xsettings")  10x10+10+10  +10+10
+     0x1400001 "gsd-media-keys": ("gsd-media-keys" "Gsd-media-keys")  10x10+10+10  +10+10
+     0x1200001 "gsd-power": ("gsd-power" "Gsd-power")  10x10+10+10  +10+10
+     0x1000001 "gsd-color": ("gsd-color" "Gsd-color")  10x10+10+10  +10+10
+     0xe00001 "gsd-keyboard": ("gsd-keyboard" "Gsd-keyboard")  10x10+10+10  +10+10
+     0xa00001 "ibus-extension-gtk3": ("ibus-extension-gtk3" "Ibus-extension-gtk3")  10x10+10+10  +10+10
+     0x800003 "ibus-xim": ()  1x1+0+0  +0+0
+        1 child:
+        0x800004 (has no name): ()  1x1+-1+-1  +-1+-1
+     0x800001 "ibus-x11": ("ibus-x11" "Ibus-x11")  10x10+10+10  +10+10
+     0x600011 (has no name): ()  1x1+-100+-100  +-100+-100
+     0x60000f (has no name): ()  1x1+-1+-1  +-1+-1
+     0x600009 (has no name): ()  1x1+-100+-100  +-100+-100
+     0x600008 (has no name): ()  1x1+-100+-100  +-100+-100
+     0x600007 (has no name): ()  1x1+-100+-100  +-100+-100
+     0x600006 "GNOME Shell": ()  1x1+-100+-100  +-100+-100
+     0x600001 "gnome-shell": ("gnome-shell" "Gnome-shell")  10x10+10+10  +10+10
+     0x20000a (has no name): ()  1x1+-100+-100  +-100+-100
+     0x600010 "mutter guard window": ()  1918x888+0+0  +0+0
