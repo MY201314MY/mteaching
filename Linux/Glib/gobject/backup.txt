@@ -1,0 +1,67 @@
+#include <glib.h>
+
+typedef struct {
+    gint key;
+    char *value;
+} map_t;
+
+map_t map[3] = {
+        {1, "one"},
+        {2, "two"},
+        {3, "three"},
+};
+
+static void iterator(gpointer key, gpointer value, gpointer format)
+{
+    g_print(format, *(gint*)key, value);
+}
+
+static printKey(gpointer key, gpointer format)
+{
+    g_print(format, *(gint*)key);
+}
+
+static printValue(gpointer value, gpointer format)
+{
+    g_print(format, value);
+}
+
+int main() {
+    g_print("- - - GLib HASH - - - -\r\n");
+    GHashTable *hash = g_hash_table_new(g_int_hash, g_int_equal);
+
+    gint i = 0;
+    for(;i<3;i++)
+        g_hash_table_insert(hash, &map[i].key, map[i].value);
+    g_print("There're %d keys in the hash.\n", g_hash_table_size(hash));
+
+    gboolean ret = g_hash_table_remove(hash, &map[1].key);
+    if(ret)
+        g_print("key found, the item was removed!\r\n");
+    else
+        g_print("key not found!\r\n");
+
+    gint key = 128;
+    ret = g_hash_table_insert(hash, &key, "mongoose OS");
+    if(ret)
+        g_print("item insert successfully.\r\n");
+
+    ret = g_hash_table_replace(hash, &map[0].key, "Designed by Apple in Cal.");
+    if(ret)
+        g_print("item replaced successfully.\r\n");
+
+    g_hash_table_foreach(hash, iterator, "key:%02d -- value:%s\r\n");
+    g_print("\r\n");
+
+    GList *lkey = g_hash_table_get_keys(hash);
+    g_list_foreach(lkey, printKey, "%d\r\n");
+    g_print("\r\n");
+
+    GList *lvalue = g_hash_table_get_values(hash);
+    g_list_foreach(lvalue, printValue, "%s\r\n");
+    g_print("\r\n");
+
+    g_hash_table_destroy(hash);
+
+    return 0;
+}

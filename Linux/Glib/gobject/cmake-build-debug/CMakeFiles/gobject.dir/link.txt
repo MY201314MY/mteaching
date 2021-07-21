@@ -1,0 +1,1 @@
+/usr/bin/cc -g   CMakeFiles/gobject.dir/main.c.o CMakeFiles/gobject.dir/student.c.o  -o gobject  -lpthread -ldbus-1 -lgio-2.0 -lgobject-2.0 -lglib-2.0 
