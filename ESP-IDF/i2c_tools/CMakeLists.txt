@@ -1,8 +1,6 @@
-# The following lines of boilerplate have to be in your project's CMakeLists
-# in this exact order for cmake to work correctly
-cmake_minimum_required(VERSION 3.5)
+set(COMPONENT_SRCS "i2ctools_example_main.c"
+                   "cmd_i2ctools.c" "bluetooth.c" "uart.c"
+                   "mqtt.c" "http.c")
+set(COMPONENT_ADD_INCLUDEDIRS ".")
 
-set(EXTRA_COMPONENT_DIRS $ENV{IDF_PATH}/examples/system/console/components)
-
-include($ENV{IDF_PATH}/tools/cmake/project.cmake)
-project(i2c-tools)
+register_component()

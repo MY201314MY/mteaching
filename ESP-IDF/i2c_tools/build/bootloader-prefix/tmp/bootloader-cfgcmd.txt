@@ -1,1 +1,0 @@
-cmd='/usr/bin/cmake;-DSDKCONFIG=/home/pi/espressif/final/i2c_tools/sdkconfig;-DIDF_PATH=/home/pi/espressif/esp-idf;-DSECURE_BOOT_SIGNING_KEY=/home/pi/espressif/final/i2c_tools;-DEXTRA_COMPONENT_DIRS=/home/pi/espressif/esp-idf/components/bootloader;-GNinja;/home/pi/espressif/esp-idf/components/bootloader/subproject'
