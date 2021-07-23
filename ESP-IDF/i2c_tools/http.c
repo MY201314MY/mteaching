@@ -32,7 +32,7 @@
 #define EXAMPLE_WIFI_PASS ""
 
 /* FreeRTOS event group to signal when we are connected & ready to make a request */
-EventGroupHandle_t wifi_event_group;
+EventGroupHandle_t event_group;
 
 /* The event group allows multiple bits for each event,
    but we only care about one event - are we connected
@@ -51,6 +51,8 @@ static const char *REQUEST = "GET " WEB_URL " HTTP/1.0\r\n"
     "User-Agent: Mozilla/5.0\r\n"
     "\r\n";
 
+xQueueHandle token = NULL;
+
 static esp_err_t event_handler(void *ctx, system_event_t *event)
 {
     switch(event->event_id) {
@@ -58,13 +60,13 @@ static esp_err_t event_handler(void *ctx, system_event_t *event)
         esp_wifi_connect();
         break;
     case SYSTEM_EVENT_STA_GOT_IP:
-        xEventGroupSetBits(wifi_event_group, CONNECTED_BIT);
+        xEventGroupSetBits(event_group, CONNECTED_BIT);
         break;
     case SYSTEM_EVENT_STA_DISCONNECTED:
         /* This is a workaround as ESP32 WiFi libs don't currently
            auto-reassociate. */
         esp_wifi_connect();
-        xEventGroupClearBits(wifi_event_group, CONNECTED_BIT);
+        xEventGroupClearBits(event_group, CONNECTED_BIT);
         break;
     default:
         break;
@@ -75,7 +77,7 @@ static esp_err_t event_handler(void *ctx, system_event_t *event)
 static void initialise_wifi(void)
 {
     tcpip_adapter_init();
-    wifi_event_group = xEventGroupCreate();
+    event_group = xEventGroupCreate();
     ESP_ERROR_CHECK( esp_event_loop_init(event_handler, NULL) );
     wifi_init_config_t cfg = WIFI_INIT_CONFIG_DEFAULT();
     ESP_ERROR_CHECK( esp_wifi_init(&cfg) );
@@ -107,7 +109,7 @@ static void http_get_task(void *pvParameters)
         /* Wait for the callback to set the CONNECTED_BIT in the
            event group.
         */
-        xEventGroupWaitBits(wifi_event_group, CONNECTED_BIT,
+        xEventGroupWaitBits(event_group, CONNECTED_BIT,
                             false, true, portMAX_DELAY);
         ESP_LOGI(TAG, "Connected to AP");
 
@@ -178,6 +180,8 @@ static void http_get_task(void *pvParameters)
         close(s);
         for(int countdown = 10; countdown >= 0; countdown--) {
             ESP_LOGI(TAG, "%d... ", countdown);
+
+            xEventGroupSetBits(event_group, BIT1);
             vTaskDelay(5*60*1000 / portTICK_PERIOD_MS);
         }
         ESP_LOGI(TAG, "Starting again!");
@@ -186,6 +190,8 @@ static void http_get_task(void *pvParameters)
 
 void HTTP_Init()
 {
+    token = xQueueCreate(1, 128);
+
     ESP_ERROR_CHECK( nvs_flash_init() );
     initialise_wifi();
     xTaskCreate(&http_get_task, "http_get_task", 4096, NULL, 24, NULL);

@@ -58,6 +58,6 @@ void uart_Init() {
     // We won't use a buffer for sending data.
     uart_driver_install(UART_NUM_1, RX_BUF_SIZE * 2, 0, 0, NULL, 0);
 
-    xTaskCreate(rx_task, "uart_rx_task", 1024*2, NULL, configMAX_PRIORITIES, NULL);
-    xTaskCreate(tx_task, "uart_tx_task", 1024*2, NULL, configMAX_PRIORITIES-1, NULL);
+    xTaskCreate(rx_task, "uart_rx_task", 1024*2, NULL, 18, NULL);
+    xTaskCreate(tx_task, "uart_tx_task", 1024*2, NULL, 16, NULL);
 }

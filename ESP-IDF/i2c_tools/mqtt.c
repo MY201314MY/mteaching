@@ -129,8 +129,8 @@ static void mqtt_app_start(void)
 
 void mqtt_Init()
 {
-    xEventGroupWaitBits(wifi_event_group, CONNECTED_BIT, false, true, portMAX_DELAY);
-    vTaskDelay(1000 / portTICK_PERIOD_MS);
+    xEventGroupWaitBits(event_group, BIT1, false, true, portMAX_DELAY);
+    vTaskDelay(200 / portTICK_PERIOD_MS);
     ESP_LOGI(TAG, "[MQTT] Startup..");
 
     esp_log_level_set("*", ESP_LOG_INFO);

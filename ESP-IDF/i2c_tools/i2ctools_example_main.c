@@ -200,7 +200,7 @@ void app_main()
     bluetooth_Init();
     vTaskDelay(1000 / portTICK_PERIOD_MS);
     mqtt_Init();
-    initialize_console();
 
+    initialize_console();
     xTaskCreate(terminal, "terminal", 1024*4, NULL, configMAX_PRIORITIES-1, NULL);    
 }

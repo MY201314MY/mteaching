@@ -326,13 +326,14 @@ static void gatts_profile_event_handler(esp_gatts_cb_event_t event, esp_gatt_if_
             if(!strncmp((const char *)param->write.value, "on", 2)){
                 printf("Turn on the LED\n");
                 gpio_set_level(BLINK_GPIO, 1);
+                esp_ble_gatts_send_indicate(gatts_if, param->write.conn_id, gl_profile_tab[PROFILE_APP_ID].char_handle,
+                                                strlen("ON"), (uint8_t *)"ON", false);
             }else if(!strncmp((const char *)param->write.value, "off", 3)){
                 printf("Turn off the LED\n");
                 gpio_set_level(BLINK_GPIO, 0);
+                esp_ble_gatts_send_indicate(gatts_if, param->write.conn_id, gl_profile_tab[PROFILE_APP_ID].char_handle,
+                                                strlen("OFF"), (uint8_t *)"OFF", false);
             }
-
-            esp_ble_gatts_send_indicate(gatts_if, param->write.conn_id, gl_profile_tab[PROFILE_APP_ID].char_handle,
-                                                strlen("ack!"), (uint8_t *)"ack", false);
             
             char buffer[32] = {0};
             strncpy(buffer, (const char *)param->write.value, (size_t)param->write.len);
