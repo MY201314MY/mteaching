@@ -21,6 +21,7 @@
 #include "mqtt_client.h"
 
 #include "http.h"
+#include "ili9341.h"
 
 #include "LED.h"
 
@@ -67,11 +68,13 @@ static esp_err_t mqtt_event_handler(esp_mqtt_event_handle_t event)
                 {
                     printf("Turn on the LED\n");
                     gpio_set_level(BLINK_GPIO, 1);
+                    xEventGroupSetBits(onenetCmd, BIT0);
                 }
                 else
                 {
                     printf("Turn off the LED\n");
                     gpio_set_level(BLINK_GPIO, 0);
+                    xEventGroupSetBits(onenetCmd, BIT1);
                 }
             }   
 

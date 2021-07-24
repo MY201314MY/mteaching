@@ -28,8 +28,8 @@
    If you'd rather not, just change the below entries to strings with
    the config you want - ie #define EXAMPLE_WIFI_SSID "mywifissid"
 */
-#define EXAMPLE_WIFI_SSID "muyuan-life"
-#define EXAMPLE_WIFI_PASS ""
+#define EXAMPLE_WIFI_SSID "mteaching"
+#define EXAMPLE_WIFI_PASS "12345678"
 
 /* FreeRTOS event group to signal when we are connected & ready to make a request */
 EventGroupHandle_t event_group;
@@ -50,8 +50,6 @@ static const char *REQUEST = "GET " WEB_URL " HTTP/1.0\r\n"
     "Host: "WEB_SERVER"\r\n"
     "User-Agent: Mozilla/5.0\r\n"
     "\r\n";
-
-xQueueHandle token = NULL;
 
 static esp_err_t event_handler(void *ctx, system_event_t *event)
 {
@@ -175,6 +173,7 @@ static void http_get_task(void *pvParameters)
                 putchar(recv_buf[i]);
             }
         } while(r > 0);
+        printf("\r\n");
 
         ESP_LOGI(TAG, "... done reading from socket. Last read return=%d errno=%d\r\n", r, errno);
         close(s);
@@ -190,8 +189,6 @@ static void http_get_task(void *pvParameters)
 
 void HTTP_Init()
 {
-    token = xQueueCreate(1, 128);
-
     ESP_ERROR_CHECK( nvs_flash_init() );
     initialise_wifi();
     xTaskCreate(&http_get_task, "http_get_task", 4096, NULL, 24, NULL);

@@ -26,6 +26,7 @@
 #include "uart.h"
 #include "http.h"
 #include "mqtt.h"
+#include "ili9341.h"
 #include "bluetooth.h"
 
 static const char *TAG = "i2c-tools";
@@ -192,6 +193,8 @@ void app_main()
 
     initialize_nvs();
 
+    ili9341_Init();
+
 #if CONFIG_STORE_HISTORY
     initialize_filesystem();
 #endif
@@ -202,5 +205,7 @@ void app_main()
     mqtt_Init();
 
     initialize_console();
-    xTaskCreate(terminal, "terminal", 1024*4, NULL, configMAX_PRIORITIES-1, NULL);    
+    xTaskCreate(terminal, "terminal", 1024*4, NULL, configMAX_PRIORITIES-1, NULL);  
 }
+
+
