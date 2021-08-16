@@ -55,8 +55,14 @@
     timedatectl 
         timedatectl set-timezone 'Asia/Shanghai'
 9、iw
-    扫描WiFi
-        iw wlan0 scan
+    1、iw wlan0 scan
+       扫描WiFi
+    2、iw list 
+        列出网卡性能
+    3、iw wlan0 connect mteaching
+        连接不加密WiFi(mteaching)
+    4、iw wlan0 connect mteaching keys d:0:12345678
+        连接加密WiFi(mteaching) d:default 0:第零个密码
 
 10、 gi
     sudo apt-get install python3-gi
@@ -111,7 +117,4 @@
 	2、flag
 		pkg-config --cflags --libs glib-2.0
 			-I/usr/include/glib-2.0 -I/usr/lib/x86_64-linux-gnu/glib-2.0/include -lglib-2.0
-
-16、iw
-    1、iw list 
-        列出网卡性能
+    
