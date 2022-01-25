@@ -2,14 +2,15 @@
 
 ###### show thread(s) in process
 
+###### ps
+
 ```shell
 ps -T -p PID
 ```
 
-![](D:\repository\mteaching\note\picture\ps.png)
+###### top
 
 ```shell
 top -H -p PID
 ```
 
-![](D:\repository\mteaching\note\picture\top.png)
