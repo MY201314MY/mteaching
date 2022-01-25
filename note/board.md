@@ -124,12 +124,6 @@ network={
 }
 ```
 
-###### ntp
-
-```shell
-apt-get install tzdata-asia
-```
-
 ##### script
 
 ###### download
