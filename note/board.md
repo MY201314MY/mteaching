@@ -36,10 +36,53 @@ ffmpeg -i radio.mp4 -q:v 5 -c:v mpeg1video -c:a mp2 -format mpeg maria.mpg
 ffmpeg -i maria.mpg -strict -2 -s 240x428 output.mpg
 ```
 
+###### information
+
+```shell
+gst-discoverer-1.0 sight.mp4
+ 
+Analyzing file:///home/root/Video/sight.mp4
+Done discovering file:///home/root/Video/sight.mp4
+
+Topology:
+  container: Quicktime
+    audio: MPEG-4 AAC
+    video: H.264 (High Profile)
+
+Properties:
+  Duration: 0:00:09.267000000
+  Seekable: yes
+  Live: no
+  Tags:
+      audio codec: MPEG-4 AAC audio
+      maximum bitrate: 69000
+      bitrate: 55392
+      encoder: Lavf58.29.100
+      container format: ISO MP4/M4A
+      video codec: H.264 / AVC
+```
+
+
+
 ###### **display the fps of mi-pi**
 
 ```
 cat /sys/kernel/debug/dri/0/state | grep fps -m1
+```
+
+##### iw
+
+```shell
+#scan SSID
+iw dev wlan0 scan | grep SSID
+#link status
+iw dev wlan0 link
+#list dev performance
+iw dev list
+#connect SSID without password
+iw dev wlan0 connect mteaching
+#connect SSID with password
+iw dev wlan0 connect mteaching keys d:0:12345678
 ```
 
 ###### **connect to wireless network**
@@ -49,7 +92,7 @@ ifconfig wlan0 up
 sleep 5
 
 wpa_supplicant -B -i wlan0 -c /etc/wpa_supplicant.conf
-iw wlan0 link
+iw dev wlan0 link
 udhcpc -i wlan0
 ping www.baidu.com -c 4
 ntpdate ntp1.aliyun.com
@@ -58,8 +101,10 @@ ntpdate ntp1.aliyun.com
 ###### initial wireless network
 
 ```shell
-wpa_passphrase TP-LINK_81B5 w.15619288881w >> /etc/wpa_supplicant.conf
+wpa_passphrase TP-LINK_81B5 w.156192XXXXw >> /etc/wpa_supplicant.conf
 ```
+
+
 
 ```shell
 #No Password
@@ -104,6 +149,14 @@ do
 done
 ```
 
+###### without certificate
+
+```shell
+wget https://www.apple.com.cn/105/media/cn/iphone-12/2020/7f5b7de7-9f8c-41eb-bf3b-f294773108e6/anim/hero-purple/large_2x.mp4 --no-check-certificate
+```
+
+
+
 ###### play
 
 ```shell
@@ -122,6 +175,13 @@ done
 
 ```
 scp output.mpeg  root@192.168.137.10:/home/root/Video
+```
+
+###### pscp
+
+```shell
+#'r' means directory supported, pscp is provided by SSH
+pscp -r D:\Web\monkey root@120.26.185.144:/var/www/html
 ```
 
 weston
@@ -145,7 +205,105 @@ sleep 1
 fb-test -w
 ```
 
+##### package
 
+###### process
+
+```shell
+apt-get install nano
+apt-get install redis
+apt-get install nginx
+apt-get install mosquitto mosquitto-clients
+```
+
+###### hardware supported by python
+
+```shell
+apt-get install python3-pip
+apt-get install libgpiod-python
+apt-get install python3-smbus	
+apt-get install python3-spidev
+```
+
+###### software supported by python
+
+```
+apt-get install python3-dbus
+apt-get install python3-sqlite3
+apt-get install python3-gi
+```
+
+##### install package with pip
+
+```shell
+pip3 install paho-mqtt -i http://mirrors.aliyun.com/pypi/simple/ --trusted-host mirrors.aliyun.com
+pip3 install requests -i http://mirrors.aliyun.com/pypi/simple/ --trusted-host mirrors.aliyun.com
+```
+
+###### update dtb
+
+```shell
+make dtbs
+scp arch/arm/boot/dts/stm32mp157c-dk2.dtb root@192.168.7.1:/boot
+```
+
+##### apt
+
+###### search
+
+```shell
+apt-cache searsh redis
+```
+
+##### update
+
+###### install
+
+```shell
+apt-get install ntpdate
+```
+
+###### synchronization
+
+```shell
+ntpdate ntp1.aliyun.com
+```
+
+###### add timezone
+
+```shell
+apt-cache search zone
+```
+
+###### install timezone
+
+```shell
+apt-get install tzdata-asia
+```
+
+###### set timezone
+
+```shell
+timedatectl set-timezone 'Asia/Shanghai'
+```
+
+##### Glib
+
+##### install
+
+```shell
+sudo apt-get install libglib2.0-dev
+reference url:
+	https://www.cnblogs.com/alexyuyu/articles/2555216.html
+    https://blog.csdn.net/andylauren/category_6219334.html
+```
+
+##### C Build
+
+```shell
+pkg-config --cflags --libs glib-2.0
+	-I/usr/include/glib-2.0 -I/usr/lib/x86_64-linux-gnu/glib-2.0/include -lglib-2.0
+```
 
 ##### timestamp
 
