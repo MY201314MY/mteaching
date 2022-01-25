@@ -124,7 +124,30 @@ done
 scp output.mpeg  root@192.168.137.10:/home/root/Video
 ```
 
-###### timestamp
+weston
+
+```shell
+#start
+systemctl start weston
+#stop
+systemctl stop weston
+```
+
+fbtft
+
+```shell
+fb-test -r
+sleep 1
+fb-test -g
+sleep 1
+fb-test -b
+sleep 1
+fb-test -w
+```
+
+
+
+##### timestamp
 
 **millisecond**
 
