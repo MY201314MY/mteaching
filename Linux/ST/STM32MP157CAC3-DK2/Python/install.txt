@@ -1,5 +1,0 @@
-1、D-Bus
-    apt-get install python3-dbus
-2、install package
-    pip3 install paho-mqtt -i http://mirrors.aliyun.com/pypi/simple/ --trusted-host mirrors.aliyun.com
-
