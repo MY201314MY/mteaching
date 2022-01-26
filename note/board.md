@@ -101,7 +101,7 @@ ntpdate ntp1.aliyun.com
 ###### initial wireless network
 
 ```shell
-wpa_passphrase TP-LINK_81B5 w.156192XXXXw >> /etc/wpa_supplicant.conf
+wpa_passphrase mteaching 12345678 >> /etc/wpa_supplicant.conf
 ```
 
 
