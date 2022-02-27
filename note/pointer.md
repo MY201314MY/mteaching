@@ -80,3 +80,35 @@ int main()
 }
 ```
 
+###### 布尔类型的运算结果
+
+```c
+#include <stdio.h>
+
+int main()
+{
+    int a=1, b=2, c=3;
+
+    int i = a++ || b++ || c++;
+
+    printf("%d - %d - %d - %d\r\n", i, a, b, c);
+
+    return 0;
+}
+/* 1 - 2 - 2 - 3*/
+```
+
+**"e"的作用**
+
+```c
+#include <stdio.h>
+
+int main()
+{
+    printf("%f", 2e3);
+
+    return 0;
+}
+/* 2000.000000 */
+```
+
