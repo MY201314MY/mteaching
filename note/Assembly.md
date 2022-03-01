@@ -6,7 +6,7 @@
 > Thread model: posix
 > InstalledDir: /Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin
 
-
+##### Example
 
 A **constant** that can be produced by rotating an 8-bitvalue by any even number of bits within a 32-bit word.
 
@@ -122,7 +122,36 @@ A **constant** that can be produced by rotating an 8-bitvalue by any even number
 		ORR		R2,	R0,	R1
 ```
 
-##### CPSR
+###### CPSR
 
 CPSR Status Bits
+
+##### S3C2440 LED Blinker
+
+```assembly
+.text
+.global _start
+
+_start:
+    LDR R0,=0x56000050
+    MOV R1,#0x00000100
+    STR R1,[R0]
+    LDR R0,=0X56000054
+    MOV R1,#0X00000000
+    STR R1,[R0]
+loop:
+    B   loop
+```
+
+Makefile
+
+```makefile
+led.bin : led.S
+	arm-linux-gcc -g -c -o led.o led.S
+	arm-linux-ld -Ttext 0x0000000 -g led.o -o led.elf
+	arm-linux-objcopy -O binary -S led.elf led.bin
+	arm-linux-objdump -D led.elf > led.dis
+clean:
+	rm -f   led.bin led.elf led.dis *.o
+```
 
