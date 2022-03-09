@@ -31,7 +31,7 @@ gst-launch-1.0 playbin uri=file:///home/root/watch.mp4
 **ffmpeg**
 
 ```shell
-ffmpeg -i norway.mp4 -s 800*480 output.mp4 -q:v1
+ffmpeg -i norway.mp4 -s 800*480 output.mp4 -q:v 1
 ffmpeg -i radio.mp4 -q:v 5 -c:v mpeg1video -c:a mp2 -format mpeg maria.mpg
 ffmpeg -i maria.mpg -strict -2 -s 240x428 output.mpg
 ```
@@ -187,7 +187,9 @@ systemctl start weston
 systemctl stop weston
 ```
 
-fbtft
+##### fbtft
+
+###### fb-test
 
 ```shell
 fb-test -r
