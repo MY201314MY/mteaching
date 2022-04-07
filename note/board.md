@@ -26,6 +26,8 @@ nohup gst-launch-1.0 playbin uri=http://82.157.101.63/watch.mp4 &
 
 ```shell
 gst-launch-1.0 playbin uri=file:///home/root/watch.mp4
+/* Display in framebuffer */
+gst-launch-1.0 filesrc location=/home/root/littleVGL/maria.mpg ! decodebin ! videoconvert ! fbdevsink device=/dev/fb0
 ```
 
 **ffmpeg**
@@ -34,6 +36,8 @@ gst-launch-1.0 playbin uri=file:///home/root/watch.mp4
 ffmpeg -i norway.mp4 -s 800*480 output.mp4 -q:v 1
 ffmpeg -i radio.mp4 -q:v 5 -c:v mpeg1video -c:a mp2 -format mpeg maria.mpg
 ffmpeg -i maria.mpg -strict -2 -s 240x428 output.mpg
+
+ffmpeg -i in.mp4 -vcodec libx264 -preset veryslow -threads 2 -s 800*480 -acodec copy out.mp4
 ```
 
 ###### information
@@ -60,6 +64,101 @@ Properties:
       encoder: Lavf58.29.100
       container format: ISO MP4/M4A
       video codec: H.264 / AVC
+```
+
+**gst-inspect-1.0**
+
+```shell
+gst-inspect-1.0 fbdevsink
+Factory Details:
+  Rank                     none (0)
+  Long-name                fbdev video sink
+  Klass                    Sink/Video
+  Description              Linux framebuffer videosink
+  Author                   Sean D'Epagnier <sean@depagnier.com>
+
+Plugin Details:
+  Name                     fbdevsink
+  Description              Linux framebuffer video sink
+  Filename                 /usr/lib/gstreamer-1.0/libgstfbdevsink.so
+  Version                  1.14.4
+  License                  LGPL
+  Source module            gst-plugins-bad
+  Source release date      2018-10-02
+  Binary package           GStreamer Bad Plug-ins source release
+  Origin URL               Unknown package origin
+
+GObject
+ +----GInitiallyUnowned
+       +----GstObject
+             +----GstElement
+                   +----GstBaseSink
+                         +----GstVideoSink
+                               +----GstFBDEVSink
+
+Pad Templates:
+  SINK template: 'sink'
+    Availability: Always
+    Capabilities:
+      video/x-raw
+                 format: { (string)RGB, (string)BGR, (string)BGRx, (string)xBGR, (string)RGB, (string)RGBx, (string)xRGB, (string)RGB15, (string)RGB16 }
+                  width: [ 1, 2147483647 ]
+                 height: [ 1, 2147483647 ]
+              framerate: [ 0/1, 2147483647/1 ]
+
+Element has no clocking capabilities.
+Element has no URI handling capabilities.
+
+Pads:
+  SINK: 'sink'
+    Pad Template: 'sink'
+
+Element Properties:
+  name                : The name of the object
+                        flags: readable, writable
+                        String. Default: "fbdevsink0"
+  parent              : The parent of the object
+                        flags: readable, writable
+                        Object of type "GstObject"
+  sync                : Sync on the clock
+                        flags: readable, writable
+                        Boolean. Default: true
+  max-lateness        : Maximum number of nanoseconds that a buffer can be late before it is dropped (-1 unlimited)
+                        flags: readable, writable
+                        Integer64. Range: -1 - 9223372036854775807 Default: 20000000
+  qos                 : Generate Quality-of-Service events upstream
+                        flags: readable, writable
+                        Boolean. Default: true
+  async               : Go asynchronously to PAUSED
+                        flags: readable, writable
+                        Boolean. Default: true
+  ts-offset           : Timestamp offset in nanoseconds
+                        flags: readable, writable
+                        Integer64. Range: -9223372036854775808 - 9223372036854775807 Default: 0
+  enable-last-sample  : Enable the last-sample property
+                        flags: readable, writable
+                        Boolean. Default: true
+  last-sample         : The last sample received in the sink
+                        flags: readable
+                        Boxed pointer of type "GstSample"
+  blocksize           : Size in bytes to pull per buffer (0 = default)
+                        flags: readable, writable
+                        Unsigned Integer. Range: 0 - 4294967295 Default: 4096
+  render-delay        : Additional render delay of the sink in nanoseconds
+                        flags: readable, writable
+                        Unsigned Integer64. Range: 0 - 18446744073709551615 Default: 0
+  throttle-time       : The time to keep between rendered buffers (0 = disabled)
+                        flags: readable, writable
+                        Unsigned Integer64. Range: 0 - 18446744073709551615 Default: 0
+  max-bitrate         : The maximum bits per second to render (0 = disabled)
+                        flags: readable, writable
+                        Unsigned Integer64. Range: 0 - 18446744073709551615 Default: 0
+  show-preroll-frame  : Whether to render video frames during preroll
+                        flags: readable, writable
+                        Boolean. Default: true
+  device              : The framebuffer device eg: /dev/fb0
+                        flags: readable, writable
+                        String. Default: null
 ```
 
 
