@@ -300,6 +300,15 @@ sleep 1
 fb-test -w
 ```
 
+##### monitor
+
+###### cpu temperature
+
+```shell
+root@stm32mp1:/sys/devices/virtual/thermal/thermal_zone0# cat temp
+62866
+```
+
 ##### package
 
 ###### process
