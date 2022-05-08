@@ -1,4 +1,25 @@
-##### This is designed for STM32MP157
+##### This is designed for STM32MP157F-DK2
+
+Support for ST7701
+
+```dtd
+panel_otm8009a: panel-otm8009a@0 {
+    compatible = "techstar,ts8550b";
+    reg = <0>;
+    reset-gpios = <&gpioe 4 GPIO_ACTIVE_LOW>;
+    VCC-supply = <&v3v3>;
+    IOVCC-supply = <&v3v3>;
+    status = "okay";
+
+    port {
+    	panel_in: endpoint {
+    		remote-endpoint = <&dsi_out>;
+    	};
+    };
+};
+```
+
+
 
 ###### **FPS**
 
@@ -277,7 +298,7 @@ scp output.mpeg  root@192.168.137.10:/home/root/Video
 pscp -r D:\Web\monkey root@120.26.185.144:/var/www/html
 ```
 
-weston
+###### weston
 
 ```shell
 #start
@@ -285,6 +306,16 @@ systemctl start weston
 #stop
 systemctl stop weston
 ```
+
+New version
+
+```shell
+systemctl start weston@root.service
+
+systemctl stop weston@root.service
+```
+
+
 
 ##### fbtft
 
@@ -454,45 +485,297 @@ tar.gz
 	unrar e file.rar
 ```
 
-##### Build Kernel in NEW
+###### Shell
 
-###### error
+```shell
+echo "We used the Linux shell script mainly for the installation."
 
+if [ $EUID != 0 ];then
+    echo "You aren't the root."
+fi
+
+array=(ABCDEF)
+echo $array
+echo ${#array[@]}
+
+array=(A B C D E F)
+echo $array
+echo ${#array[@]}
+
+for i in ${array[*]}
+do
+    echo $i
+done
+
+i=0
+sum=0
+while(( $i != 10 ))
+do
+#    let "i++"
+    i=`expr $i + 1`
+    echo $i
+done
+
+i=0
+sum=0
+while [[ $i != 10 ]]
+do
+    #let "i++"
+    i=`expr $i + 1`
+    echo $i
+done
+
+echo ******************************
 ```
-[   11.488579] galcore: disagrees about version of symbol module_layout
-[   11.519854] brcmutil: disagrees about version of symbol module_layout
-[   11.525627] brcmutil: disagrees about version of symbol module_layout
-[   11.572800] typec: disagrees about version of symbol module_layout
-[  OK  ] Listening on dropbear.socket.
-[  OK  ] Reached target Sockets.
-[  OK  ] Reached target Basic System.
-[  OK  ] Started Kernel Logging Service.
-[  OK  ] Started System Logging Service.
-[  OK  ] Started D-Bus System Message Bus.
-[   11.984871] soundcore: disagrees about version of symbol module_layout
+
+##### modetest
+
+```shell
+root@stm32mp1:~# modetest -M stm
+Encoders:
+id      crtc    type    possible crtcs  possible clones
+34      40      DSI     0x00000001      0x00000002
+
+Connectors:
+id      encoder status          name            size (mm)       modes   encoders
+35      34      connected       DSI-1           52x86           2       34
+  modes:
+        index name refresh (Hz) hdisp hss hse htot vdisp vss vse vtot)
+  #0 480x800 50.00 480 578 610 708 800 815 825 839 29700 flags: nhsync, nvsync; type: preferred, driver
+  #1 480x800 60.00 480 550 582 654 800 815 825 841 33000 flags: nhsync, nvsync; type: driver
+  props:
+        1 EDID:
+                flags: immutable blob
+                blobs:
+
+                value:
+        2 DPMS:
+                flags: enum
+                enums: On=0 Standby=1 Suspend=2 Off=3
+                value: 0
+        5 link-status:
+                flags: enum
+                enums: Good=0 Bad=1
+                value: 0
+        6 non-desktop:
+                flags: immutable range
+                values: 0 1
+                value: 0
+        4 TILE:
+                flags: immutable blob
+                blobs:
+
+                value:
+        20 CRTC_ID:
+                flags: object
+                value: 40
+
+CRTCs:
+id      fb      pos     size
+40      0       (0,0)   (480x800)
+  #0 480x800 50.00 480 578 610 708 800 815 825 839 29700 flags: nhsync, nvsync; type: preferred, driver
+  props:
+        22 ACTIVE:
+                flags: range
+                values: 0 1
+                value: 1
+        23 MODE_ID:
+                flags: blob
+                blobs:
+
+                value:
+                        04740000e00142026202c40200002003
+                        2f03390347030000320000000a000000
+                        48000000343830783830300000000000
+                        00000000000000000000000000000000
+                        00000000
+        19 OUT_FENCE_PTR:
+                flags: range
+                values: 0 18446744073709551615
+                value: 0
+        24 VRR_ENABLED:
+                flags: range
+                values: 0 1
+                value: 0
+        31 BACKGROUND_COLOR:
+                flags: range
+                values: 0 18446744073709551615
+                value: 18446462598732840960
+        28 GAMMA_LUT:
+                flags: blob
+                blobs:
+
+                value:
+        29 GAMMA_LUT_SIZE:
+                flags: immutable range
+                values: 0 4294967295
+                value: 256
+
+Planes:
+id      crtc    fb      CRTC x,y        x,y     gamma size      possible crtcs
+36      0       0       0,0             0,0     0               0x00000001
+  formats: AR24 XR24 RG24 RG16 AR15 XR15 AR12 XR12 C8
+  props:
+        8 type:
+                flags: immutable enum
+                enums: Overlay=0 Primary=1 Cursor=2
+                value: 1
+        17 FB_ID:
+                flags: object
+                value: 0
+        18 IN_FENCE_FD:
+                flags: signed range
+                values: -1 2147483647
+                value: -1
+        20 CRTC_ID:
+                flags: object
+                value: 0
+        13 CRTC_X:
+                flags: signed range
+                values: -2147483648 2147483647
+                value: 0
+        14 CRTC_Y:
+                flags: signed range
+                values: -2147483648 2147483647
+                value: 0
+        15 CRTC_W:
+                flags: range
+                values: 0 2147483647
+                value: 480
+        16 CRTC_H:
+                flags: range
+                values: 0 2147483647
+                value: 800
+        9 SRC_X:
+                flags: range
+                values: 0 4294967295
+                value: 0
+        10 SRC_Y:
+                flags: range
+                values: 0 4294967295
+                value: 0
+        11 SRC_W:
+                flags: range
+                values: 0 4294967295
+                value: 31457280
+        12 SRC_H:
+                flags: range
+                values: 0 4294967295
+                value: 52428800
+        30 IN_FORMATS:
+                flags: immutable blob
+                blobs:
+
+                value:
+                        01000000000000000900000018000000
+                        01000000400000004152323458523234
+                        52473234524731364152313558523135
+                        41523132585231324338202000000000
+                        ff010000000000000000000000000000
+                        0000000000000000
+                in_formats blob decoded:
+                         AR24:  LINEAR
+                         XR24:  LINEAR
+                         RG24:  LINEAR
+                         RG16:  LINEAR
+                         AR15:  LINEAR
+                         XR15:  LINEAR
+                         AR12:  LINEAR
+                         XR12:  LINEAR
+                         C8  :  LINEAR
+        38 alpha:
+                flags: range
+                values: 0 65535
+                value: 65535
+        39 zpos:
+                flags: immutable range
+                values: 0 0
+                value: 0
+41      0       0       0,0             0,0     0               0x00000001
+  formats: AR24 RG24 RG16 AR15 AR12 C8
+  props:
+        8 type:
+                flags: immutable enum
+                enums: Overlay=0 Primary=1 Cursor=2
+                value: 0
+        17 FB_ID:
+                flags: object
+                value: 0
+        18 IN_FENCE_FD:
+                flags: signed range
+                values: -1 2147483647
+                value: -1
+        20 CRTC_ID:
+                flags: object
+                value: 0
+        13 CRTC_X:
+                flags: signed range
+                values: -2147483648 2147483647
+                value: 0
+        14 CRTC_Y:
+                flags: signed range
+                values: -2147483648 2147483647
+                value: 0
+        15 CRTC_W:
+                flags: range
+                values: 0 2147483647
+                value: 0
+        16 CRTC_H:
+                flags: range
+                values: 0 2147483647
+                value: 0
+        9 SRC_X:
+                flags: range
+                values: 0 4294967295
+                value: 0
+        10 SRC_Y:
+                flags: range
+                values: 0 4294967295
+                value: 0
+        11 SRC_W:
+                flags: range
+                values: 0 4294967295
+                value: 0
+        12 SRC_H:
+                flags: range
+                values: 0 4294967295
+                value: 0
+        30 IN_FORMATS:
+                flags: immutable blob
+                blobs:
+
+                value:
+                        01000000000000000600000018000000
+                        01000000300000004152323452473234
+                        52473136415231354152313243382020
+                        3f000000000000000000000000000000
+                        0000000000000000
+                in_formats blob decoded:
+                         AR24:  LINEAR
+                         RG24:  LINEAR
+                         RG16:  LINEAR
+                         AR15:  LINEAR
+                         AR12:  LINEAR
+                         C8  :  LINEAR
+        43 alpha:
+                flags: range
+                values: 0 65535
+                value: 65535
+        44 zpos:
+                flags: immutable range
+                values: 1 1
+                value: 1
 ```
 
-###### normal
+###### make some test
 
-```
-[   11.601229] galcore: loading out-of-tree module taints kernel.
-[   11.631800] Bluetooth: HCI UART protocol Broadcom registered
-[  OK  ] Listening on dropbear.socket.
-[  OK  ] Reached target Sockets.
-[  OK  ] Reached target Basic System.
-[   11.750629] Galcore version 6.4.3.279124
-[  OK  ] Started Kernel Logging Service.
-[  OK  ] Started System Logging Service.
-[  OK  ] Started D-Bus System Message Bus.
-[   12.037074] cfg80211: Loading compiled-in X.509 certificates for regulatory database
-[   12.074804] Bluetooth: hci0: BCM: chip id 94
-[   12.078493] Bluetooth: hci0: BCM: features 0x2e
-[   12.083789] Bluetooth: hci0: BCM43430A1
-[   12.086265] Bluetooth: hci0: BCM43430A1 (001.002.009) build 0000
-[   12.100257] Bluetooth: hci0: BCM43430A1 'brcm/BCM43430A1.hcd' Patch
-[   12.248575] cfg80211: Loaded X.509 cert 'sforshee: 00b28ddf47aef9cea7'
-[  OK  ] Started GENIVI DLT logging daemon.
+```shell
+#RGB Display
+root@stm32mp1:~#  modetest -s 35@40:480x800@RG24 -M stm
+setting mode 480x800-50.00Hz@RG24 on connectors 35, crtc 40
 ```
 
 
+
+##### The realtionship betwoon Character ID and Blue Z
 
