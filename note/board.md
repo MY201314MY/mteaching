@@ -373,6 +373,8 @@ apt-get install python3-gi
 ```shell
 pip3 install paho-mqtt -i http://mirrors.aliyun.com/pypi/simple/ --trusted-host mirrors.aliyun.com
 pip3 install requests -i http://mirrors.aliyun.com/pypi/simple/ --trusted-host mirrors.aliyun.com
+pip3 install --user meson
+export PATH=/home/pi/.local/bin:$PATH
 ```
 
 ###### update dtb
