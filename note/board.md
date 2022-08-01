@@ -773,8 +773,17 @@ id      crtc    fb      CRTC x,y        x,y     gamma size      possible crtcs
 
 ```shell
 #RGB Display
-root@stm32mp1:~#  modetest -s 35@40:480x800@RG24 -M stm
+root@stm32mp1:~#modetest -s 35@40:480x800@RG24 -M stm
 setting mode 480x800-50.00Hz@RG24 on connectors 35, crtc 40
+```
+
+##### find
+
+```shell
+#Find files in current directory by name.
+find . | grep weston.ini
+#Find special text in the files.
+find main.c | xargs grep -rin sync
 ```
 
 
