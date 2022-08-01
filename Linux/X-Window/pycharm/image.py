@@ -9,7 +9,7 @@ if __name__ == '__main__':
     temp = cv2.imread(filename="WeChat.jpg")
     temp = cv2.resize(src=temp, dsize=(390, 209))
 
-    pixel = np.array([1, 2, 3], dtype=np.uint8)
+    pixel = np.array([1, 1, 3], dtype=np.uint8)
 
     start = time.time()
     with open(file="image.bin", mode="rb") as f:
