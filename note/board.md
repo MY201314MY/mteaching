@@ -57,8 +57,10 @@ gst-launch-1.0 filesrc location=/home/root/littleVGL/maria.mpg ! decodebin ! vid
 ffmpeg -i norway.mp4 -s 800*480 output.mp4 -q:v 1
 ffmpeg -i radio.mp4 -q:v 5 -c:v mpeg1video -c:a mp2 -format mpeg maria.mpg
 ffmpeg -i maria.mpg -strict -2 -s 240x428 output.mpg
-
+#High Quality
 ffmpeg -i in.mp4 -vcodec libx264 -preset veryslow -threads 2 -s 800*480 -acodec copy out.mp4
+#crop w:h:x:y
+ffmpeg -i input.mp4 -vf crop=400:400:10:10 output.mp4 -y
 ```
 
 ###### information
@@ -784,6 +786,22 @@ setting mode 480x800-50.00Hz@RG24 on connectors 35, crtc 40
 find . | grep weston.ini
 #Find special text in the files.
 find main.c | xargs grep -rin sync
+```
+
+##### hexdump
+
+```shell
+hexdump -C main -s 5672 -n 16
+```
+
+##### convert
+
+```shell
+convert m.png -resize 64x gnu.png
+convert ios.jpg -resize x480 1.jpg
+
+convert 1.jpg -crop 480x800+0+28 iOS.jpg
+identify iOS.jpg
 ```
 
 
