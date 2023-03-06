@@ -31,6 +31,12 @@ panel_otm8009a: panel-otm8009a@0 {
 
 ```shell
 curl http://121.5.149.236/snow.mpg --verbose --output snow.mpg
+
+curl-X POST \
+https://ant-admin.biteanbox.com/v1/factory/device/tp/add \
+-Fmodel=xxx \
+-F iccid=xxx \
+-F imei=xxx \
 ```
 
 ##### gstreamer
