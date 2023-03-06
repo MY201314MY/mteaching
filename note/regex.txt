@@ -1,0 +1,47 @@
+单个字符
+1-'?' 匹配前一个字符出现一次或者零次 'used?'
+use a used variable is illegal.
+
+2-'*' 匹配前一个字符没有出现或者出现多次 'ab*c'
+ac
+abc
+abbbbbbc
+adc
+addddddc
+
+3-'+' 匹配前一个字符至少出现一次 'ab+c'
+ac
+abc
+abbbbbbc
+adc
+addddddc
+
+3-'{}' 限定字符出现的次数 '{6}' '{2,6}' '{2,}'
+ac
+abc
+abbbbbbc
+adc
+addddddc
+
+
+多个字符
+1-'()' 整体匹配字符串至少出现一次 '(ab)+' '(ab){2}'
+ac
+abc
+abbc
+abababc
+adc
+addddddc
+
+或运算
+1-'|' 出现一种即可 'a (cat|dog)' "'a cat' == 'a (cat)'"
+a cat
+a dog
+a bird
+
+1-[] 匹配由特定字符构成的单词,其中一个字符存在即可
+abc
+tiger
+aabbcc
+dog
+ABC
