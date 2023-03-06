@@ -1,0 +1,14 @@
+cmake_minimum_required(VERSION 3.12.4)
+project(maria VERSION 0.1.0)
+add_executable(maria main.c)
+
+find_package(PkgConfig)
+pkg_check_modules(CURL libcurl)
+
+add_subdirectory(lvgl)
+include_directories(lvgl)
+
+add_subdirectory(mteaching)
+include_directories(mteaching)
+
+target_link_libraries(maria PUBLIC ${CURL_LIBRARIES} lvgl mteaching quectel)
